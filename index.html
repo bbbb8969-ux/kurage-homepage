@@ -90,5 +90,126 @@
       <div class="footer-info"><div><b>介護事業所番号</b><span>未設定</span></div><div><b>医療機関コード</b><span>未設定</span></div><div><b>電話番号</b><span>078-797-5430</span></div><div><b>FAX番号</b><span>078-797-5435</span></div></div>
     </div>
   </footer>
+  <section class="rehab-schedule">
+  <h2>訪問リハビリ空き状況</h2>
+
+  <p class="rehab-center">
+    更新日：<span id="rehabUpdatedAt">読込中...</span>
+  </p>
+
+  <p class="rehab-center">
+    👩 女性作業療法士（月〜木）　👨 男性理学療法士（金）
+  </p>
+
+  <p class="rehab-center">
+    ○ 空きあり　△ 要相談　× 満員
+  </p>
+
+  <button onclick="toggleRehabDetail()" class="rehab-btn">
+    詳細を見る
+  </button>
+
+  <div id="rehabDetail" style="display:none;">
+    <table id="rehabTable"></table>
+  </div>
+</section>
+
+<style>
+.rehab-schedule{
+  max-width:1100px;
+  margin:60px auto;
+  padding:30px;
+  background:#fff7ef;
+  border-radius:20px;
+}
+
+.rehab-schedule h2{
+  text-align:center;
+  color:#8f4b2e;
+}
+
+.rehab-center{
+  text-align:center;
+}
+
+.rehab-btn{
+  display:block;
+  margin:20px auto;
+  padding:12px 24px;
+  border:none;
+  border-radius:999px;
+  background:#d97745;
+  color:white;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+#rehabTable{
+  width:100%;
+  border-collapse:collapse;
+  background:white;
+}
+
+#rehabTable th{
+  background:#d8a37a;
+  color:white;
+  padding:10px;
+}
+
+#rehabTable td{
+  text-align:center;
+  padding:10px;
+  border:1px solid #eee;
+}
+
+.ok{ color:green; font-weight:bold; }
+.consult{ color:orange; font-weight:bold; }
+.full{ color:red; font-weight:bold; }
+</style>
+
+<script>
+const API_URL = "https://script.google.com/macros/s/AKfycbxnsfM6l8y4IeplaNQIX4g79a7dnEcuFI5j-_q5epWzFuOz8n8ZIgR8-KRbyibMSd6a/exec";
+
+function toggleRehabDetail() {
+  const area = document.getElementById("rehabDetail");
+  area.style.display = area.style.display === "none" ? "block" : "none";
+}
+
+fetch(API_URL)
+.then(response => response.json())
+.then(data => {
+  document.getElementById("rehabUpdatedAt").innerText = data.updatedAt;
+
+  let html = "<thead><tr>";
+
+  data.headers.forEach(h => {
+    html += `<th>${h}</th>`;
+  });
+
+  html += "</tr></thead><tbody>";
+
+  data.rows.forEach(row => {
+    html += "<tr>";
+
+    row.forEach(cell => {
+      let cls = "";
+      if(cell === "○") cls = "ok";
+      if(cell === "△") cls = "consult";
+      if(cell === "×") cls = "full";
+
+      html += `<td class="${cls}">${cell}</td>`;
+    });
+
+    html += "</tr>";
+  });
+
+  html += "</tbody>";
+
+  document.getElementById("rehabTable").innerHTML = html;
+})
+.catch(error => {
+  document.getElementById("rehabUpdatedAt").innerText = "取得できませんでした";
+});
+</script>
 </body>
 </html>
