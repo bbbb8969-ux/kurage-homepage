@@ -156,6 +156,58 @@
       .catch(error => {
         document.getElementById("rehabUpdatedAt").innerText = "取得できませんでした";
       });
+  <style>
+.rehab-schedule{
+  max-width:1100px;
+  margin:60px auto;
+  padding:30px;
+  background:#fff7ef;
+  border-radius:20px;
+}
+
+.rehab-schedule h2{
+  text-align:center;
+  color:#8f4b2e;
+}
+
+.rehab-center{
+  text-align:center;
+}
+
+.rehab-btn{
+  display:block;
+  margin:20px auto;
+  padding:12px 24px;
+  border:none;
+  border-radius:999px;
+  background:#d97745;
+  color:white;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+#rehabTable{
+  width:100%;
+  border-collapse:collapse;
+  background:white;
+}
+
+#rehabTable th{
+  background:#d8a37a;
+  color:white;
+  padding:10px;
+}
+
+#rehabTable td{
+  text-align:center;
+  padding:10px;
+  border:1px solid #eee;
+}
+
+.ok{ color:green; font-weight:bold; }
+.consult{ color:orange; font-weight:bold; }
+.full{ color:red; font-weight:bold; }
+</style>
   </script>
 </body>
 </html>
