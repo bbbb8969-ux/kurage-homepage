@@ -1,4 +1,4 @@
-﻿:root {
+:root {
       --ink: #4b2418;
       --muted: #7c675c;
       --orange: #f46d34;
@@ -540,6 +540,82 @@
       margin: 0;
       color: var(--muted);
       font-size: 14px;
+    }
+
+    .rehab-schedule {
+      width: min(1100px, calc(100% - 40px));
+      margin: 60px auto;
+      padding: 30px;
+      background: #fff7ef;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 14px 30px rgba(128, 67, 34, 0.08);
+    }
+
+    .rehab-schedule h2 {
+      margin: 0 0 18px;
+      text-align: center;
+      color: #8f4b2e;
+      font-size: 30px;
+      line-height: 1.25;
+    }
+
+    .rehab-center {
+      margin: 8px 0;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .rehab-btn {
+      display: block;
+      margin: 20px auto;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 999px;
+      background: #d97745;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      font-family: inherit;
+      font-size: 15px;
+    }
+
+    .rehab-detail {
+      overflow-x: auto;
+    }
+
+    #rehabTable {
+      width: 100%;
+      min-width: 640px;
+      border-collapse: collapse;
+      background: white;
+    }
+
+    #rehabTable th {
+      background: #d8a37a;
+      color: white;
+      padding: 10px;
+    }
+
+    #rehabTable td {
+      text-align: center;
+      padding: 10px;
+      border: 1px solid #eee;
+    }
+
+    .ok {
+      color: green;
+      font-weight: bold;
+    }
+
+    .consult {
+      color: orange;
+      font-weight: bold;
+    }
+
+    .full {
+      color: red;
+      font-weight: bold;
     }
 
     .inline-photo {
@@ -1136,7 +1212,8 @@
       .section { padding: 52px 0; }
 
       .section-head h2,
-      .cta h2 {
+      .cta h2,
+      .rehab-schedule h2 {
         font-size: 25px;
       }
 
