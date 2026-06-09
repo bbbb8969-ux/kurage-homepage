@@ -56,26 +56,26 @@
           <article class="photo-panel"><img src="assets/kurage-warm-hero.png" alt="訪問看護師が自宅で利用者に寄り添っている様子"><div class="photo-caption"><h3>ご本人にもご家族にも安心を</h3><p>不安や困りごとを一緒に整理します。</p></div></article>
         </div>
       </div>
-    <section class="rehab-availability">
-  <div class="rehab-inner">
-    <p class="rehab-label">訪問リハビリ</p>
+   <section class="kurage-rehab">
+  <div class="kurage-rehab-inner">
+    <p class="kurage-rehab-label">訪問リハビリ</p>
     <h2>空き状況</h2>
-    <p class="rehab-lead">大まかな空き状況です。最新状況はお問い合わせください。</p>
-    <p class="rehab-updated">更新日：<span id="rehabUpdatedAt">確認中</span></p>
+    <p class="kurage-rehab-lead">大まかな空き状況です。最新状況はお問い合わせください。</p>
+    <p class="kurage-rehab-updated">更新日：<span id="kurageRehabUpdatedAt">確認中</span></p>
 
-    <div id="rehabCards" class="rehab-week">
-      <div class="rehab-day loading">読み込み中</div>
+    <div id="kurageRehabCards" class="kurage-rehab-week">
+      <div class="kurage-rehab-day">読み込み中</div>
     </div>
 
-    <div class="rehab-legend">
-      <span class="legend-ok">○ 空きあり</span>
-      <span class="legend-consult">△ 要相談</span>
-      <span class="legend-full">× 満員</span>
+    <div class="kurage-rehab-legend">
+      <span>○ 空きあり</span>
+      <span>△ 要相談</span>
+      <span>× 満員</span>
     </div>
 
-    <details class="rehab-detail">
+    <details class="kurage-rehab-detail">
       <summary>詳細を見る</summary>
-      <div class="rehab-table-wrap">
+      <div class="kurage-rehab-table-wrap">
         <table>
           <thead>
             <tr>
@@ -86,77 +86,77 @@
               <th>備考</th>
             </tr>
           </thead>
-          <tbody id="rehabDetailBody">
+          <tbody id="kurageRehabDetailBody">
             <tr><td colspan="5">読み込み中です</td></tr>
           </tbody>
         </table>
       </div>
     </details>
 
-    <a class="rehab-contact" href="tel:0787975430">電話で相談する</a>
+    <a class="kurage-rehab-contact" href="tel:0787975430">電話で相談する</a>
   </div>
 </section>
 
 <style>
-.rehab-availability {
+.kurage-rehab {
   padding: 42px 18px;
   background: #fff7ef;
   border-top: 1px solid #f3d8ca;
   border-bottom: 1px solid #f3d8ca;
 }
 
-.rehab-inner {
+.kurage-rehab-inner {
   max-width: 980px;
   margin: 0 auto;
   text-align: center;
 }
 
-.rehab-label {
+.kurage-rehab-label {
   margin: 0 0 4px;
   color: #d95723;
   font-weight: 700;
   font-size: 14px;
 }
 
-.rehab-availability h2 {
+.kurage-rehab h2 {
   margin: 0;
   color: #8f4b2e;
   font-size: 28px;
 }
 
-.rehab-lead,
-.rehab-updated {
+.kurage-rehab-lead,
+.kurage-rehab-updated {
   color: #7c675c;
   margin: 10px auto;
 }
 
-.rehab-week {
+.kurage-rehab-week {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 10px;
   margin-top: 22px;
 }
 
-.rehab-day {
+.kurage-rehab-day {
   background: #fff;
   border: 1px solid #f3d8ca;
   border-radius: 10px;
   padding: 14px 8px;
 }
 
-.rehab-day h3 {
+.kurage-rehab-day h3 {
   margin: 0 0 6px;
   color: #8f4b2e;
   font-size: 22px;
 }
 
-.rehab-staff {
+.kurage-rehab-staff {
   margin: 0 0 8px;
   color: #7c675c;
   font-size: 13px;
 }
 
-.rehab-status {
+.kurage-rehab-status {
   display: inline-block;
   padding: 5px 11px;
   border-radius: 999px;
@@ -164,29 +164,26 @@
   font-size: 13px;
 }
 
-.status-ok { color: #2e7d32; background: #e4f6e7; }
-.status-consult { color: #9a6500; background: #fff0c9; }
-.status-full { color: #b00020; background: #ffe0e0; }
+.kurage-status-ok { color: #2e7d32; background: #e4f6e7; }
+.kurage-status-consult { color: #9a6500; background: #fff0c9; }
+.kurage-status-full { color: #b00020; background: #ffe0e0; }
 
-.rehab-legend {
+.kurage-rehab-legend {
   display: flex;
   justify-content: center;
   gap: 12px;
   flex-wrap: wrap;
   margin-top: 18px;
   font-size: 14px;
+  font-weight: 700;
 }
 
-.legend-ok { color: #2e7d32; font-weight: 700; }
-.legend-consult { color: #9a6500; font-weight: 700; }
-.legend-full { color: #b00020; font-weight: 700; }
-
-.rehab-detail {
+.kurage-rehab-detail {
   margin-top: 18px;
 }
 
-.rehab-detail summary,
-.rehab-contact {
+.kurage-rehab-detail summary,
+.kurage-rehab-contact {
   display: inline-block;
   padding: 10px 22px;
   border-radius: 999px;
@@ -197,42 +194,104 @@
   text-decoration: none;
 }
 
-.rehab-contact {
+.kurage-rehab-contact {
   margin-top: 12px;
   background: #8f4b2e;
 }
 
-.rehab-table-wrap {
+.kurage-rehab-table-wrap {
   margin-top: 18px;
   overflow-x: auto;
 }
 
-.rehab-detail table {
+.kurage-rehab-detail table {
   width: 100%;
   min-width: 620px;
   border-collapse: collapse;
   background: #fff;
 }
 
-.rehab-detail th {
+.kurage-rehab-detail th {
   background: #d8a37a;
   color: #fff;
   padding: 10px;
 }
 
-.rehab-detail td {
+.kurage-rehab-detail td {
   border: 1px solid #f1e1d9;
   padding: 10px;
 }
 
 @media (max-width: 760px) {
-  .rehab-week {
+  .kurage-rehab-week {
     grid-template-columns: 1fr;
   }
 }
 </style>
 
 <script>
+(function () {
+  const API_URL = "https://script.google.com/macros/s/AKfycbxnsfM6l8y4IeplaNQIX4g79a7dnEcuFI5j-_q5epWzFuOz8n8ZIgR8-KRbyibMSd6a/exec";
+
+  const cards = document.getElementById("kurageRehabCards");
+  const updatedAt = document.getElementById("kurageRehabUpdatedAt");
+  const detailBody = document.getElementById("kurageRehabDetailBody");
+
+  function statusClass(text) {
+    if (text === "空きあり") return "kurage-status-ok";
+    if (text === "要相談") return "kurage-status-consult";
+    if (text === "満員") return "kurage-status-full";
+    return "";
+  }
+
+  function statusText(text) {
+    if (text === "空きあり") return "○ 空きあり";
+    if (text === "要相談") return "△ 要相談";
+    if (text === "満員") return "× 満員";
+    return text || "";
+  }
+
+  fetch(API_URL)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      updatedAt.textContent = data.updatedAt || "随時更新";
+      cards.innerHTML = "";
+      detailBody.innerHTML = "";
+
+      data.rows.forEach(function (row) {
+        const day = row[0];
+        const staff = row[1];
+        const summary = row[2];
+        const morning = row[3];
+        const afternoon = row[4];
+        const note = row[5] || "";
+
+        cards.innerHTML +=
+          '<div class="kurage-rehab-day">' +
+            '<h3>' + day.replace("曜日", "") + '</h3>' +
+            '<p class="kurage-rehab-staff">' + staff + '</p>' +
+            '<p class="kurage-rehab-status ' + statusClass(summary) + '">' + statusText(summary) + '</p>' +
+          '</div>';
+
+        detailBody.innerHTML +=
+          '<tr>' +
+            '<td>' + day + '</td>' +
+            '<td>' + staff + '</td>' +
+            '<td class="' + statusClass(morning) + '">' + statusText(morning) + '</td>' +
+            '<td class="' + statusClass(afternoon) + '">' + statusText(afternoon) + '</td>' +
+            '<td>' + note + '</td>' +
+          '</tr>';
+      });
+    })
+    .catch(function () {
+      updatedAt.textContent = "随時更新";
+      cards.innerHTML = '<div class="kurage-rehab-day">空き状況はお問い合わせください</div>';
+      detailBody.innerHTML = '<tr><td colspan="5">最新状況はお電話でお問い合わせください。</td></tr>';
+    });
+})();
+</script>
 (function () {
   const API_URL = "https://script.google.com/macros/s/AKfycbxnsfM6l8y4IeplaNQIX4g79a7dnEcuFI5j-_q5epWzFuOz8n8ZIgR8-KRbyibMSd6a/exec";
 
