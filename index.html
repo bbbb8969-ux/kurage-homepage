@@ -1,33 +1,100 @@
-function doGet() {
-  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("rehab");
+﻿<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>訪問看護ステーション くらげ | ホーム</title>
+  <meta name="description" content="神戸市長田区の訪問看護ステーションくらげ。住み慣れたご自宅で、その人らしい毎日を支えます。">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+  <div class="topbar"><div class="topbar-inner"><span>神戸市長田区の訪問看護ステーション</span><span>電話 078-797-5430 / FAX 078-797-5435</span></div></div>
+  <header class="header">
+    <nav class="nav" aria-label="メインナビゲーション">
+      <a class="brand" href="index.html"><span class="brand-mark">く</span><span class="brand-text"><strong>訪問看護ステーション くらげ</strong><span>Home-Visit Nursing in Kobe</span></span></a>
+      <div class="nav-links">
+        <a href="index.html">ホーム</a><a href="about.html">くらげについて</a><a href="company.html">会社情報</a><a href="news.html">お知らせ</a><a href="recruit.html">採用情報</a><a href="sns.html">SNS等</a><a href="services.html">サービス内容</a><a href="pricing.html">利用料金</a><a href="flow.html">ご利用の流れ</a>
+      </div>
+      <div class="actions"><a class="btn btn-outline" href="tel:0787975430">電話相談</a><a class="btn btn-primary" href="https://script.google.com/macros/s/AKfycbyza8-umKAbEcbnl-5VlR28VJOGIbDoWjsdhOIgyjEAeFfrxdfCkbwgVN8pIxH5MAIu/exec">相談・依頼フォーム</a></div>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-inner"><div class="hero-copy">
+        <div class="eyebrow">くらげの信念</div>
+        <h1>柔軟に、シンプルに、<br>誠実に寄り添う。</h1>
+        <p>ご利用者様にもスタッフにも、一人ひとりの想いと状況に合わせた関わりを。くらげは「柔軟」「シンプル」「透明性」を大切に、安心して頼れる訪問看護ステーションを目指します。</p>
+        <div class="hero-consult">
+          <h2>医療機関様・居宅介護支援事業所様・ご利用者様へ</h2>
+          <p>訪問看護のご相談、退院支援、サービス依頼はこちらからお気軽にお問い合わせください。</p>
+          <a class="btn btn-primary" href="https://script.google.com/macros/s/AKfycbyza8-umKAbEcbnl-5VlR28VJOGIbDoWjsdhOIgyjEAeFfrxdfCkbwgVN8pIxH5MAIu/exec">相談・依頼フォームへ</a>
+        </div>
+        <div class="hero-points"><div class="point"><span>柔</span><b>一人ひとりに<br>合わせる</b></div><div class="point"><span>簡</span><b>必要な時間を<br>大切にする</b></div><div class="point"><span>透</span><b>納得と信頼を<br>育てる</b></div></div>
+      </div></div>
+    </section>
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-head"><h2>大切にしている3つのこと</h2><p>代表の想いを、ホームでは短く読みやすくまとめています。</p></div>
+        <div class="reason-grid">
+          <article class="reason-card"><div class="reason-number">1</div><h3>柔軟</h3><p>決められた形にとらわれず、その時々の状況や想いに合わせて、ご利用者様にもスタッフにも心地よい支援を考えます。</p></article>
+          <article class="reason-card"><div class="reason-number">2</div><h3>シンプル</h3><p>業務をわかりやすく整え、本当に必要なケアやコミュニケーションの時間を大切にします。</p></article>
+          <article class="reason-card"><div class="reason-number">3</div><h3>透明性</h3><p>情報提供と対話を大切にし、納得感のあるケアと信頼できる関係性を育てます。</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="section soft">
+      <div class="section-inner">
+        <div class="section-head"><h2>サービス内容</h2><p>医師の指示に基づき、ご自宅で必要な看護・医療処置・生活支援を行います。</p></div>
+        <div class="menu-grid">
+          <article class="menu-card"><div><div class="menu-icon">観</div><h3>健康状態の観察</h3><p>バイタル測定、病状確認、全身状態の観察を行います。</p></div><a href="services.html">詳しく見る</a></article>
+          <article class="menu-card"><div><div class="menu-icon">処</div><h3>医療処置</h3><p>点滴、カテーテル管理、創処置、褥瘡ケアなどに対応します。</p></div><a href="services.html">詳しく見る</a></article>
+          <article class="menu-card"><div><div class="menu-icon">薬</div><h3>服薬管理</h3><p>薬剤管理、服薬指導、内服状況の確認を行います。</p></div><a href="services.html">詳しく見る</a></article>
+          <article class="menu-card"><div><div class="menu-icon">歩</div><h3>リハビリ</h3><p>関節運動、歩行訓練、日常生活動作を支援します。</p></div><a href="services.html">詳しく見る</a></article>
+        </div>
+        <div class="photo-strip">
+          <article class="photo-panel"><img src="assets/home-nursing-hero.png" alt="訪問看護師が利用者と明るい室内で話している様子"><div class="photo-caption"><h3>毎日の体調を、そばで見守る</h3><p>生活に合わせた看護を丁寧に行います。</p></div></article>
+          <article class="photo-panel"><img src="assets/kurage-warm-hero.png" alt="訪問看護師が自宅で利用者に寄り添っている様子"><div class="photo-caption"><h3>ご本人にもご家族にも安心を</h3><p>不安や困りごとを一緒に整理します。</p></div></article>
+        </div>
+      </div>
+    </section>
+    <section class="kurage-rehab">
+      <div class="kurage-rehab-inner">
+        <p class="kurage-rehab-label">訪問リハビリ</p>
+        <h2>空き状況</h2>
+        <p class="kurage-rehab-lead">訪問リハビリの空き状況です。最新状況はお問い合わせください。</p>
+        <p class="kurage-rehab-updated">更新日：<span id="kurageRehabUpdatedAt">確認中</span></p>
 
-  if (!sheet) {
-    return json({
-      ok: false,
-      error: "rehabシートが見つかりません"
-    });
-  }
+        <div class="kurage-rehab-table-wrap">
+          <table class="kurage-rehab-summary-table">
+            <thead id="kurageRehabSummaryHead">
+              <tr><th>時間帯</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th></tr>
+            </thead>
+            <tbody id="kurageRehabSummaryBody">
+              <tr><td colspan="6">読み込み中です</td></tr>
+            </tbody>
+          </table>
+        </div>
 
-  const updatedAt = sheet.getRange("B1").getDisplayValue();
-  const summary = sheet.getRange("A3:F5").getDisplayValues();
-  const staff = sheet.getRange("A7:F8").getDisplayValues();
+        <div class="kurage-rehab-legend">
+          <span class="kurage-legend-ok">○ 空きあり</span>
+          <span class="kurage-legend-consult">△ 要相談</span>
+          <span class="kurage-legend-full">× 満員</span>
+        </div>
 
-  return json({
-    ok: true,
-    updatedAt: updatedAt,
-    summary: {
-      headers: summary[0],
-      rows: summary.slice(1)
-    },
-    staff: {
-      headers: staff[0],
-      rows: staff.slice(1)
-    }
-  });
-}
+        <div id="kurageRehabStaff" class="kurage-rehab-staff-note">
+          担当者情報を読み込み中です
+        </div>
 
-function json(data) {
-  return ContentService
-    .createTextOutput(JSON.stringify(data))
-    .setMimeType(ContentService.MimeType.JSON);
-}
+        <details class="kurage-rehab-detail">
+          <summary>詳細を見る</summary>
+          <div class="kurage-rehab-table-wrap">
+            <table class="kurage-rehab-detail-table">
+              <thead id="kurageRehabDetailHead">
+                <tr><th>時間帯</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th></tr>
+              </thead>
+              <tbody id="kurageRehabDetailBody">
+                <tr><td colspan="6">読み込み中です</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
