@@ -57,29 +57,162 @@
         </div>
       </div>
     </section>
-    <section class="rehab-schedule">
-      <h2>訪問リハビリ空き状況</h2>
+  <section class="rehab-availability">
+  <div class="rehab-inner">
+    <p class="rehab-label">訪問リハビリ</p>
+    <h2>空き状況</h2>
+    <p class="rehab-lead">
+      訪問リハビリの大まかな空き状況です。空き状況は変動しますので、詳しくはお問い合わせください。
+    </p>
 
-      <p class="rehab-center">
-        更新日：<span id="rehabUpdatedAt">読込中...</span>
-      </p>
+    <p class="rehab-updated">
+      更新日：<span id="rehabUpdatedAt">確認中</span>
+    </p>
 
-      <p class="rehab-center">
-        👩 女性作業療法士（月〜木）　👨 男性理学療法士（金）
-      </p>
+    <div id="rehabCards" class="rehab-week"></div>
 
-      <p class="rehab-center">
-        ○ 空きあり　△ 要相談　× 満員
-      </p>
+    <div class="rehab-legend">
+      <span class="legend-ok">○ 空きあり</span>
+      <span class="legend-consult">△ 要相談</span>
+      <span class="legend-full">× 満員</span>
+    </div>
 
-      <button type="button" onclick="toggleRehabDetail()" class="rehab-btn">
-        詳細を見る
-      </button>
+    <button type="button" class="rehab-detail-button" id="rehabDetailButton">
+      詳細を見る
+    </button>
 
-      <div id="rehabDetail" class="rehab-detail" style="display:none;">
-  <table id="rehabTable"></table>
-</div>
-    </section>
+    <div class="rehab-detail" id="rehabDetail" hidden>
+      <table>
+        <thead>
+          <tr>
+            <th>曜日</th>
+            <th>担当</th>
+            <th>午前</th>
+            <th>午後</th>
+            <th>備考</th>
+          </tr>
+        </thead>
+        <tbody id="rehabDetailBody"></tbody>
+      </table>
+    </div>
+
+    <a class="rehab-contact" href="tel:0787975430">電話で相談する</a>
+  </div>
+</section>
+<style>
+.rehab-availability {
+  padding: 70px 20px;
+  background: #fff7ef;
+  border-top: 1px solid #f3d8ca;
+  border-bottom: 1px solid #f3d8ca;
+}
+
+.rehab-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.rehab-label {
+  color: #d95723;
+  font-weight: bold;
+  margin: 0 0 6px;
+}
+
+.rehab-availability h2 {
+  color: #8f4b2e;
+  font-size: 32px;
+  margin: 0;
+}
+
+.rehab-lead {
+  color: #7c675c;
+  margin: 14px auto 14px;
+  max-width: 620px;
+}
+
+.rehab-updated {
+  color: #7c675c;
+  margin-bottom: 30px;
+}
+
+.rehab-week {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+
+.rehab-day {
+  background: #fff;
+  border: 1px solid #f3d8ca;
+  border-radius: 12px;
+  padding: 20px 12px;
+  box-shadow: 0 10px 22px rgba(128, 67, 34, 0.08);
+}
+
+.rehab-day h3 {
+  margin: 0 0 10px;
+  color: #8f4b2e;
+  font-size: 24px;
+}
+
+.rehab-staff {
+  color: #7c675c;
+  font-size: 14px;
+  min-height: 24px;
+}
+
+.rehab-status {
+  display: inline-block;
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-weight: bold;
+}
+
+.status-ok {
+  color: #2e7d32;
+  background: #e4f6e7;
+}
+
+.status-consult {
+  color: #9a6500;
+  background: #fff0c9;
+}
+
+.status-full {
+  color: #b00020;
+  background: #ffe0e0;
+}
+
+.rehab-legend {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.legend-ok {
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+.legend-consult {
+  color: #9a6500;
+  font-weight: bold;
+}
+
+.legend-full {
+  color: #b00020;
+  font-weight: bold;
+}
+
+.rehab-detail-button,
+.rehab-contact {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 12px 26px;
+  border: none;
     <section class="section">
       <div class="section-inner">
         <div class="section-head"><h2>対応エリア</h2><p>神戸市長田区、神戸市兵庫区、神戸市須磨区、神戸市中央区一部を訪問範囲としています。</p></div>
