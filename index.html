@@ -328,58 +328,77 @@
       <div class="footer-info"><div><b>介護保険事業所番号</b><span>2860690383</span></div><div><b>医療機関コード</b><span>0690383</span></div><div><b>電話番号</b><span>078-797-5430</span></div><div><b>FAX番号</b><span>078-797-5435</span></div></div>
     </div>
   </footer>
-  <script>
-const API_URL = "https://script.google.com/macros/s/AKfycbxnsfM6l8y4IeplaNQIX4g79a7dnEcuFI5j-_q5epWzFuOz8n8ZIgR8-KRbyibMSd6a/exec";
+ <script>
+(function () {
+  const API_URL = "https://script.google.com/macros/s/AKfycbxnsfM6l8y4IeplaNQIX4g79a7dnEcuFI5j-_q5epWzFuOz8n8ZIgR8-KRbyibMSd6a/exec";
 
-function toggleRehabDetail() {
-  const area = document.getElementById("rehabDetail");
+  const cards = document.getElementById("rehabCards");
+  const updatedAt = document.getElementById("rehabUpdatedAt");
+  const detailBody = document.getElementById("rehabDetailBody");
 
-  if (area.style.display === "none" || area.style.display === "") {
-    area.style.display = "block";
-  } else {
-    area.style.display = "none";
+  function statusClass(text) {
+    if (text === "空きあり") return "status-ok";
+    if (text === "要相談") return "status-consult";
+    if (text === "満員") return "status-full";
+    return "";
   }
-}
 
-fetch(API_URL)
-  .then(response => response.json())
-  .then(data => {
-    if (!data.ok) {
-      throw new Error(data.error || "データを取得できませんでした");
-    }
+  function statusText(text) {
+    if (text === "空きあり") return "○ 空きあり";
+    if (text === "要相談") return "△ 要相談";
+    if (text === "満員") return "× 満員";
+    return text || "";
+  }
 
-    document.getElementById("rehabUpdatedAt").innerText = data.updatedAt || "未設定";
+  fetch(API_URL)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      if (!data.rows) {
+        throw new Error("rowsがありません");
+      }
 
-    let html = "<thead><tr>";
+      updatedAt.textContent = data.updatedAt || "随時更新";
+      cards.innerHTML = "";
+      detailBody.innerHTML = "";
 
-    data.headers.forEach(h => {
-      html += `<th>${h}</th>`;
-    });
+      data.rows.forEach(function (row) {
+        const day = row[0];
+        const staff = row[1];
+        const summary = row[2];
+        const morning = row[3];
+        const afternoon = row[4];
+        const note = row[5] || "";
 
-    html += "</tr></thead><tbody>";
+        cards.innerHTML +=
+          '<div class="rehab-day">' +
+            '<h3>' + day.replace("曜日", "") + '</h3>' +
+            '<p class="rehab-staff">' + staff + '</p>' +
+            '<p class="rehab-status ' + statusClass(summary) + '">' + statusText(summary) + '</p>' +
+          '</div>';
 
-    data.rows.forEach(row => {
-      html += "<tr>";
-
-      row.forEach(cell => {
-        let cls = "";
-        if (cell === "○") cls = "ok";
-        if (cell === "△") cls = "consult";
-        if (cell === "×") cls = "full";
-
-        html += `<td class="${cls}">${cell}</td>`;
+        detailBody.innerHTML +=
+          '<tr>' +
+            '<td>' + day + '</td>' +
+            '<td>' + staff + '</td>' +
+            '<td class="' + statusClass(morning) + '">' + statusText(morning) + '</td>' +
+            '<td class="' + statusClass(afternoon) + '">' + statusText(afternoon) + '</td>' +
+            '<td>' + note + '</td>' +
+          '</tr>';
       });
+    })
+    .catch(function () {
+      updatedAt.textContent = "随時更新";
+      cards.innerHTML =
+        '<div class="rehab-day">' +
+          '<h3>月〜金</h3>' +
+          '<p class="rehab-staff">訪問リハビリ</p>' +
+          '<p class="rehab-status status-consult">お問い合わせください</p>' +
+        '</div>';
 
-      html += "</tr>";
+      detailBody.innerHTML =
+        '<tr><td colspan="5">最新状況はお電話でお問い合わせください。</td></tr>';
     });
-
-    html += "</tbody>";
-
-    document.getElementById("rehabTable").innerHTML = html;
-  })
-  .catch(error => {
-    document.getElementById("rehabUpdatedAt").innerText = "取得できませんでした";
-  });
+})();
 </script>
-</body>
-</html>
